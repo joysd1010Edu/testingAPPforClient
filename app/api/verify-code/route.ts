@@ -24,9 +24,8 @@ export async function POST(req: NextRequest) {
   }
 
   // Hardcoded credentials from the curl command
-  const accountSid = "AC71c11b0625ac2c63b63b7cf04cbe3dca"
-  const authToken = "b11e8f94465770fce4904c39584b398f" // You'll need to change this later
-  const serviceSid = "VAa16503cbafc02cea0db79f5e3f4e5279"
+  const authToken = process.env.TWILIO_AUTH_TOKEN
+  const serviceSid = process.env.TWILIO_SERVICE_SID
 
   // Log credentials availability (without exposing values)
   console.log("Credentials available:", {
