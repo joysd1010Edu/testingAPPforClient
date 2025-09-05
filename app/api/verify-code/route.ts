@@ -35,6 +35,10 @@ export async function POST(req: NextRequest) {
     serviceSid: !!serviceSid,
   })
 
+  if (!accountSid || !authToken || !serviceSid) {
+    return NextResponse.json({ error: "Missing Twilio configuration" }, { status: 500 })
+  }
+
   try {
     console.log("Creating Twilio client...")
     const client = new Twilio(accountSid, authToken)
