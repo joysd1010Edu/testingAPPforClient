@@ -1,15 +1,18 @@
 import { NextResponse } from "next/server"
-import { ensureItemImagesBucket } from "@/lib/supabase-image-upload"
+// import { ensureItemImagesBucket } from "@/lib/supabase-image-upload"
 
 export async function GET() {
   try {
-    const result = await ensureItemImagesBucket()
+    // Temporarily disabled - needs Supabase configuration
+    // const result = await ensureItemImagesBucket()
 
-    if (result.success) {
-      return NextResponse.json({ success: true, message: result.message })
-    } else {
-      return NextResponse.json({ success: false, error: result.error }, { status: 500 })
-    }
+    // if (result.success) {
+    //   return NextResponse.json({ success: true, message: result.message })
+    // } else {
+    //   return NextResponse.json({ success: false, error: result.error }, { status: 500 })
+    // }
+    
+    return NextResponse.json({ success: false, error: "Supabase not configured" }, { status: 500 })
   } catch (error) {
     console.error("Error in create-item-images-bucket route:", error)
     return NextResponse.json(
